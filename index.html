@@ -75,9 +75,30 @@
             height: 500px;
         }
 
+        #pauseMenu 
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            opacity: 0.6;
+            background: black;
 
+        }
 
-   
+        #resumeButton, #settingsButton, #creditsButton 
+        {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font: 30px existence;
+            color: white;
+            text-align: center;
+            opacity: 0.5;
+
+        }
    
    
    
@@ -95,20 +116,29 @@
             <div id="bottom"><img src="./images/bottom.png"/></div>
         </div>
     </div>
+
+    <div id="pauseMenu"></div>
+    <div id="resumeButton">Resume</div>
+    <div id="settingsButton">Settings</div>
+    <div id="creditsButton">Credits</div>
+
     <script>
         setTimeout(function(){ window.scrollTo(0, 0); }, 500)
+
         var world  = document.getElementById("boxDiv")
         var x
         var y
 
 
-        document.addEventListener('mousemove', function(e)
+        document.addEventListener('mousemove', runGame)
+
+        function runGame(e)
         {
-            x = e.clientX
+             x = e.clientX
             y = e.clientY
             y = -y
             world.style.transform = "translateZ(600px) rotateX("+y+"deg) rotateY("+x+"deg)"
-        })
+        }
     </script>
 </body>
 </html>

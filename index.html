@@ -14,19 +14,42 @@
         {
             width: 500px;
             height: 500px;
+            margin: 200px auto;
+            perspective: 800px;
         }
         #boxDiv 
         {
             width: 500px;
             height: 500px;
+            transform-style: preserve-3d;
         }
         #boxDiv div
         {
+            position: absolute;
             border: 1px solid white;
             width: 500px;
             height: 500px;
         }
-    </style>
+
+        #front
+        {
+            transform: translateZ(250px) rotateY(180deg);
+        }
+
+        #back
+        {
+            transform: translateZ(-250px);
+        }
+
+
+
+
+
+   
+   
+   
+   
+   </style>
 </head>
 
 <body>

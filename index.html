@@ -88,7 +88,7 @@
 
         }
 
-        #resumeButton, #settingsButton, #creditsButton 
+        #resumeButton, #settingsButton, #creditsButton, #setting1, #setting2 
         {
             position: fixed;
             left: 50%;
@@ -103,8 +103,23 @@
         #resumeButton {top: 30%;}
         #settingsButton {top: 50%;}
         #creditsButton {top: 70%;}
+        #setting1 {top: 40%;}
+        #setting2 {top: 60%;}
+
+        #goBackButton 
+        {
+            position: fixed;
+            left: 50px;
+            top: 50px;
+            transform: translateY(-50%);
+            font: 30px existence;
+            color: white;
+            text-align: center;
+            opacity: 0.6;
+            visibility: hidden;
+        }
         
-        #resumeButton:hover, #settingsButton:hover, #creditsButton:hover { opacity: 1;}
+        #resumeButton:hover, #settingsButton:hover, #creditsButton:hover, #setting1:hover, #setting2:hover, #goBackButton:hover { opacity: 1;}
    </style>
 </head>
 
@@ -124,6 +139,9 @@
     <div id="resumeButton">Resume</div>
     <div id="settingsButton">Settings</div>
     <div id="creditsButton">Credits</div>
+    <div id="setting1">Verticle Movement</div>
+    <div id="setting2">Mouse Sensitivity</div>
+    <div id="goBackButton">=></div>
 
     <script>
         setTimeout(function(){ window.scrollTo(0, 0); }, 500)
@@ -133,6 +151,8 @@
         var resumeButton = document.getElementById("resumeButton")
         var settingsButton = document.getElementById("settingsButton")
         var creditsButton = document.getElementById("creditsButton")
+        var setting1 = document.getElementById("setting1")
+        var setting2 = document.getElementById("setting2")
         var x
         var y
         var isPaused = false
@@ -140,6 +160,7 @@
         document.addEventListener('mousemove', runGame)
         document.addEventListener('keyup', function(e){ if(e.keyCode ===27)(isPaused) ? resumeGame() : pauseGame() })
         resumeButton.addEventListener('click', resumeGame)
+        settingsButton.addEventListener('click', settingsButtonClicked)
         function pauseGame()
         {
             isPaused = true
@@ -156,6 +177,12 @@
             hidePauseMenu()
         }
 
+        function settingsButtonClicked()
+        {
+            hidePauseMenu()
+            showSettingsMenu()
+        }
+
         function showPauseMenu()
         {
             resumeButton.style.visibility = 'visible'
@@ -168,6 +195,12 @@
             resumeButton.style.visibility = 'hidden'
             settingsButton.style.visibility = 'hidden'
             creditsButton.style.visibility = 'hidden'
+        }
+
+        function showSettingsMenu()
+        {
+            setting1.style.visibility = 'visible'
+            setting2.style.visibility = 'visible'
         }
 
         function runGame(e)

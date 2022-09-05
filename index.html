@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>3D Portfolio | Jerald website</title>
     <style>
         html,body {margin: 0; padding: 0;}
@@ -16,33 +13,38 @@
 
         #mainDiv 
         {
-            width: 500px;
-            height: 500px;
-            margin: 200px auto;
+            width: 512px;
+            height: 512px;
+            margin: 212px auto;
             perspective: 800px;
+            line-clamp: none;
         }
         #boxDiv 
         {
-            width: 500px;
-            height: 500px;
+            width: 512px;
+            height: 512px;
             transform-style: preserve-3d;
-            transform: translateZ(600px);
+            transform: translateZ(612px);
+            line-clamp: none;
         }
         #boxDiv div
         {
             position: absolute;
             width: 500px;
-            height: 500px;
+            height: 512px;
+            
         }
 
         #front
         {
             transform: translateZ(250px) rotateY(180deg);
+            
         }
 
         #back
         {
             transform: translateZ(-250px);
+            
         }
 
         #left
@@ -71,8 +73,9 @@
 
         img 
         {
-            width: 500px;
-            height: 500px;
+            width: 512px;
+            height: 512px;
+            
         }
 
         #pauseMenu 
@@ -127,8 +130,8 @@
 </head>
 
 <body>
-    <div id="mainDiv">
-        <div id="boxDiv">
+    <div id="mainDiv" >
+        <div id="boxDiv" >
             <div id="front"><img src="./images/front.jpg"/></div>
             <div id="back"><img src="./images/back.jpg"/></div>
             <div id="left"><img src="./images/left.jpg"/></div>
@@ -188,6 +191,8 @@
             document.body.style.cursor = 'pointer'
             pauseMenu.style.visibility = 'hidden'
             hidePauseMenu()
+            hideSettingsMenu()
+            hideCreditsMenu()
         }
 
         function settingsButtonClicked()

@@ -111,12 +111,12 @@
 <body>
     <div id="mainDiv">
         <div id="boxDiv">
-            <div id="front"><img src="./images/front.png"/></div>
-            <div id="back"><img src="./images/back.png"/></div>
-            <div id="left"><img src="./images/left.png"/></div>
-            <div id="right"><img src="./images/right.png"/></div>
-            <div id="top"><img src="./images/top.png"/></div>
-            <div id="bottom"><img src="./images/bottom.png"/></div>
+            <div id="front"><img src="./images/front.jpg"/></div>
+            <div id="back"><img src="./images/back.jpg"/></div>
+            <div id="left"><img src="./images/left.jpg"/></div>
+            <div id="right"><img src="./images/right.jpg"/></div>
+            <div id="top"><img src="./images/top.jpg"/></div>
+            <div id="bottom"><img src="./images/bottom.jpg"/></div>
         </div>
     </div>
 
@@ -139,7 +139,7 @@
 
         document.addEventListener('mousemove', runGame)
         document.addEventListener('keyup', function(e){ if(e.keyCode ===27)(isPaused) ? resumeGame() : pauseGame() })
-
+        resumeButton.addEventListener('click', resumeGame)
         function pauseGame()
         {
             isPaused = true

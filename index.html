@@ -22,6 +22,7 @@
             width: 500px;
             height: 500px;
             transform-style: preserve-3d;
+            transform: translateZ(600px);
         }
         #boxDiv div
         {
@@ -51,6 +52,18 @@
         {
             transform: rotateY(-90deg) translateX(250px);
             transform-origin: right;
+        }
+
+        #top
+        {
+            transform: rotateX(-90deg) translateY(-250px);
+            transform-origin: top;
+        }
+
+        #bottom
+        {
+            transform: rotateY(90deg) translateX(250px);
+            transform-origin: bottom;
         }
 
 

@@ -143,6 +143,7 @@
         function pauseGame()
         {
             isPaused = true
+            document.body.style.cursor = 'crosshair'
             pauseMenu.style.visibility = 'visible'
             showPauseMenu()
         }
@@ -150,6 +151,7 @@
         function resumeGame() 
         {
             isPaused = false
+            document.body.style.cursor = 'pointer'
             pauseMenu.style.visibility = 'hidden'
             hidePauseMenu()
         }
@@ -170,10 +172,13 @@
 
         function runGame(e)
         {
-             x = e.clientX
-            y = e.clientY
-            y = -y
-            world.style.transform = "translateZ(600px) rotateX("+y+"deg) rotateY("+x+"deg)"
+            if(!isPaused)
+            {
+                x = e.clientX
+                y = e.clientY
+                y = -y
+                world.style.transform = "translateZ(600px) rotateX("+y+"deg) rotateY("+x+"deg)"
+            }
         }
     </script>
 </body>

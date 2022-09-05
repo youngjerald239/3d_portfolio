@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>3D Portfolio | Jerald website</title>
     <style>
         html,body {margin: 0; padding: 0;}
@@ -88,7 +88,7 @@
 
         }
 
-        #resumeButton, #settingsButton, #creditsButton, #setting1, #setting2 
+        #resumeButton, #settingsButton, #creditsButton, #setting1, #setting2, #creditsText1, #creditsText2, #creditsText3
         {
             position: fixed;
             left: 50%;
@@ -105,6 +105,9 @@
         #creditsButton {top: 70%;}
         #setting1 {top: 40%;}
         #setting2 {top: 60%;}
+        #creditsText1 {top: 35%; font: 22px existence;}
+        #creditsText2 {top: 50%; font: 22px existence;}
+        #creditsText3 {top: 65%; font: 22px existence;}
 
         #goBackButton 
         {
@@ -141,7 +144,10 @@
     <div id="creditsButton">Credits</div>
     <div id="setting1">Verticle Movement</div>
     <div id="setting2">Mouse Sensitivity</div>
-    <div id="goBackButton">=></div>
+    <div id="creditsText1">Programming<br/>Jerald Young</div>
+    <div id="creditsText2">Graphics<br/> Skybox created by Zachary "skiingpenquins" Slocum</div>
+    <div id="creditsText3">Menu Design<br />Jerald Young</div>
+    <div id="goBackButton"><=</div>
 
     <script>
         setTimeout(function(){ window.scrollTo(0, 0); }, 500)
@@ -153,6 +159,10 @@
         var creditsButton = document.getElementById("creditsButton")
         var setting1 = document.getElementById("setting1")
         var setting2 = document.getElementById("setting2")
+        var creditsText1 = document.getElementById("creditsText1")
+        var creditsText2 = document.getElementById("creditsText2")
+        var creditsText3 = document.getElementById("creditsText3")
+        var goBackButton = document.getElementById("goBackButton")
         var x
         var y
         var isPaused = false
@@ -161,6 +171,9 @@
         document.addEventListener('keyup', function(e){ if(e.keyCode ===27)(isPaused) ? resumeGame() : pauseGame() })
         resumeButton.addEventListener('click', resumeGame)
         settingsButton.addEventListener('click', settingsButtonClicked)
+        creditsButton.addEventListener('click', creditsButtonClicked)
+        goBackButton.addEventListener('click', gobackButtonClicked)
+
         function pauseGame()
         {
             isPaused = true
@@ -183,6 +196,19 @@
             showSettingsMenu()
         }
 
+        function creditsButtonClicked()
+        {
+            hidePauseMenu()
+            showCreditsMenu()
+        }
+
+        function gobackButtonClicked()
+        {
+            hideSettingsMenu()
+            hideCreditsMenu()
+            showPauseMenu()
+        }
+
         function showPauseMenu()
         {
             resumeButton.style.visibility = 'visible'
@@ -201,6 +227,31 @@
         {
             setting1.style.visibility = 'visible'
             setting2.style.visibility = 'visible'
+            goBackButton.style.visibility = 'visible'
+        }
+
+        function hideSettingsMenu()
+        {
+            setting1.style.visibility = 'hidden'
+            setting2.style.visibility = 'hidden'
+            goBackButton.style.visibility = 'hidden'
+        }
+
+        function showCreditsMenu() 
+        {
+            creditsText1.style.visibility = 'visible'
+            creditsText2.style.visibility = 'visible'
+            creditsText3.style.visibility = 'visible'
+            goBackButton.style.visibility = 'visible'
+        }
+
+        function hideCreditsMenu()
+        {
+            creditsText1.style.visibility = 'hidden'
+            creditsText2.style.visibility = 'hidden'
+            creditsText3.style.visibility = 'hidden'
+            goBackButton.style.visibility = 'hidden'
+
         }
 
         function runGame(e)

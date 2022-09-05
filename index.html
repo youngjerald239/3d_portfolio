@@ -84,24 +84,27 @@
             height: 100%;
             opacity: 0.6;
             background: black;
+            visibility: hidden;
 
         }
 
         #resumeButton, #settingsButton, #creditsButton 
         {
             position: fixed;
-            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             font: 30px existence;
             color: white;
             text-align: center;
             opacity: 0.5;
+            visibility: hidden;
 
         }
-   
-   
-   
+        #resumeButton {top: 30%;}
+        #settingsButton {top: 50%;}
+        #creditsButton {top: 70%;}
+        
+        #resumeButton:hover, #settingsButton:hover, #creditsButton:hover { opacity: 1;}
    </style>
 </head>
 
@@ -126,11 +129,44 @@
         setTimeout(function(){ window.scrollTo(0, 0); }, 500)
 
         var world  = document.getElementById("boxDiv")
+        var pauseMenu = document.getElementById("pauseMenu")
+        var resumeButton = document.getElementById("resumeButton")
+        var settingsButton = document.getElementById("settingsButton")
+        var creditsButton = document.getElementById("creditsButton")
         var x
         var y
-
+        var isPaused = false
 
         document.addEventListener('mousemove', runGame)
+        document.addEventListener('keyup', function(e){ if(e.keyCode ===27)(isPaused) ? resumeGame() : pauseGame() })
+
+        function pauseGame()
+        {
+            isPaused = true
+            pauseMenu.style.visibility = 'visible'
+            showPauseMenu()
+        }
+
+        function resumeGame() 
+        {
+            isPaused = false
+            pauseMenu.style.visibility = 'hidden'
+            hidePauseMenu()
+        }
+
+        function showPauseMenu()
+        {
+            resumeButton.style.visibility = 'visible'
+            settingsButton.style.visibility = 'visible'
+            creditsButton.style.visibility = 'visible'
+        }
+
+        function hidePauseMenu()
+        {
+            resumeButton.style.visibility = 'hidden'
+            settingsButton.style.visibility = 'hidden'
+            creditsButton.style.visibility = 'hidden'
+        }
 
         function runGame(e)
         {
